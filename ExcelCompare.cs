@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
@@ -27,7 +28,7 @@ namespace ExcelCompareApp
             {
                 textBox1.Text = openFileDialog1.FileName;
                 dtOne = ReadSheet(textBox1, cbSheetFile1);
-                lblMsgFile1.Text = dtOne.Rows.Count.ToString();
+                lblMsgFile1.Text = "Row count is " + dtOne.Rows.Count.ToString();
             }
         }
 
@@ -38,10 +39,10 @@ namespace ExcelCompareApp
             {
                 textBox2.Text = openFileDialog2.FileName;
                 dtTwo = ReadSheet(textBox2, cbSheetFile2);
-                lblMsgFile2.Text = dtTwo.Rows.Count.ToString();
+                lblMsgFile2.Text = "Row count is " + dtTwo.Rows.Count.ToString();
             }
         }
-        private DataTable ReadSheet(TextBox textBox,ComboBox comboBox)
+        private DataTable ReadSheet(TextBox textBox, ComboBox comboBox)
         {
             DataTable dt = new DataTable();
             var file = new FileInfo(textBox.Text);
@@ -63,6 +64,7 @@ namespace ExcelCompareApp
                 reader.IsFirstRowAsColumnNames = true;
                 ds1 = reader.AsDataSet();
 
+                //GetTableName From Sheet
                 var tablenames = GetTablenames(ds1.Tables);
                 comboBox.DataSource = tablenames;
 
@@ -73,7 +75,7 @@ namespace ExcelCompareApp
                 }
                 //dataGridView1.DataSource = ds;
                 //dataGridView1.DataMember
-                
+
                 return dt;
             }
         }
@@ -84,7 +86,10 @@ namespace ExcelCompareApp
             {
                 dtResult = getDifferentRecords(dtOne, dtTwo);
                 dataGridView1.DataSource = dtResult;
-                lblMsgResult.Text = "Data not equal is " + dtResult.Rows.Count.ToString() + " row";
+                if (dtResult != null)
+                {
+                    lblMsgResult.Text = "Data not equal is " + dtResult.Rows.Count.ToString() + " row";
+                }
             }
             else
             {
@@ -98,9 +103,13 @@ namespace ExcelCompareApp
             lblMsgFile2.Text = "";
             lblMsgResult.Text = "";
             dataGridView1.DataSource = null;
-            dtOne.Clear();
-            dtTwo.Clear();
-            dtResult.Clear();
+            dtOne = null;
+            dtTwo = null;
+            dtResult = null;
+            textBox1.Text = "";
+            textBox2.Text = "";
+            cbSheetFile1.Text = "";
+            cbSheetFile2.Text = "";
         }
 
         private IList<string> GetTablenames(DataTableCollection tables)
@@ -155,6 +164,12 @@ namespace ExcelCompareApp
                 MessageBox.Show("Save completed");
             }
         }
+        private DataTable SetTableName(DataTable dt, string name)
+        {
+            dt.TableName = name;
+
+            return dt;
+        }
 
         private void ExcelCompare_Load(object sender, EventArgs e)
         {
@@ -169,6 +184,11 @@ namespace ExcelCompareApp
             //use a Dataset to make use of a DataRelation object   
             using (DataSet ds = new DataSet())
             {
+                if (FirstDataTable.TableName == SecondDataTable.TableName)
+                {
+                    MessageBox.Show("Please choose different sheet name.");
+                    return null;
+                }
                 //Add tables   
                 ds.Tables.AddRange(new DataTable[] { FirstDataTable.Copy(), SecondDataTable.Copy() });
 
@@ -206,7 +226,6 @@ namespace ExcelCompareApp
                 ResultDataTable.BeginLoadData();
                 foreach (DataRow parentrow in ds.Tables[0].Rows)
                 {
-                    int index = ds.Tables[0].Rows.IndexOf(parentrow); //get current row index
                     DataRow[] childrows = parentrow.GetChildRows(r1);
 
 
@@ -220,7 +239,6 @@ namespace ExcelCompareApp
                 //If SecondDataTable Row not in FirstDataTable, Add to ResultDataTable.   
                 foreach (DataRow parentrow in ds.Tables[1].Rows)
                 {
-                    int index = ds.Tables[1].Rows.IndexOf(parentrow); //get current row index
                     DataRow[] childrows = parentrow.GetChildRows(r2);
                     if (childrows == null || childrows.Length == 0)
                     {
@@ -238,20 +256,40 @@ namespace ExcelCompareApp
 
         private void cbSheetFile1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SelectTable(cbSheetFile1, dtOne);
+            SelectTable(cbSheetFile1, "dtOne");
+            if (dtOne == null)
+            {
+                return;
+            }
+            lblMsgFile1.Text = "Row count is " + dtOne.Rows.Count.ToString();
         }
 
         private void cbSheetFile2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SelectTable(cbSheetFile2, dtTwo);
+            SelectTable(cbSheetFile2, "dtTwo");
+            if (dtTwo == null)
+            {
+                return;
+            }
+            lblMsgFile2.Text = "Row count is " + dtTwo.Rows.Count.ToString();
         }
-        private void SelectTable(ComboBox comboBox,DataTable dt)
+        private void SelectTable(ComboBox comboBox, string strDt)
         {
             var tablename = comboBox.SelectedItem.ToString();
-            
-            dt = ds1.Tables[tablename];
+
+            if (strDt == "dtOne")
+            {
+                dtOne = ds1.Tables[tablename];
+            }
+            else
+            {
+                dtTwo = ds1.Tables[tablename];
+            }
+
 
             //GetValues(ds, tablename);
         }
+
+        
     }
 }

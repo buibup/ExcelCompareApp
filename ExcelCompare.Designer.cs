@@ -57,7 +57,7 @@
             this.textBox1.Location = new System.Drawing.Point(5, 36);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(326, 20);
+            this.textBox1.Size = new System.Drawing.Size(326, 23);
             this.textBox1.TabIndex = 9;
             // 
             // textBox2
@@ -65,7 +65,7 @@
             this.textBox2.Location = new System.Drawing.Point(5, 36);
             this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(326, 20);
+            this.textBox2.Size = new System.Drawing.Size(326, 23);
             this.textBox2.TabIndex = 10;
             // 
             // gbFile1
@@ -76,6 +76,7 @@
             this.gbFile1.Controls.Add(this.cbSheetFile1);
             this.gbFile1.Controls.Add(this.btnChooseFil1);
             this.gbFile1.Controls.Add(this.textBox1);
+            this.gbFile1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.gbFile1.Location = new System.Drawing.Point(11, 12);
             this.gbFile1.Name = "gbFile1";
             this.gbFile1.Size = new System.Drawing.Size(414, 119);
@@ -95,10 +96,11 @@
             // Sheet
             // 
             this.Sheet.AutoSize = true;
+            this.Sheet.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.Sheet.Location = new System.Drawing.Point(259, 69);
             this.Sheet.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Sheet.Name = "Sheet";
-            this.Sheet.Size = new System.Drawing.Size(72, 13);
+            this.Sheet.Size = new System.Drawing.Size(95, 17);
             this.Sheet.TabIndex = 26;
             this.Sheet.Text = "Choose sheet";
             // 
@@ -108,17 +110,18 @@
             this.cbSheetFile1.Location = new System.Drawing.Point(33, 66);
             this.cbSheetFile1.Margin = new System.Windows.Forms.Padding(2);
             this.cbSheetFile1.Name = "cbSheetFile1";
-            this.cbSheetFile1.Size = new System.Drawing.Size(222, 21);
+            this.cbSheetFile1.Size = new System.Drawing.Size(222, 24);
             this.cbSheetFile1.TabIndex = 25;
             this.cbSheetFile1.SelectedIndexChanged += new System.EventHandler(this.cbSheetFile1_SelectedIndexChanged);
             // 
             // btnChooseFil1
             // 
             this.btnChooseFil1.BackColor = System.Drawing.Color.Wheat;
-            this.btnChooseFil1.Location = new System.Drawing.Point(333, 36);
+            this.btnChooseFil1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.btnChooseFil1.Location = new System.Drawing.Point(333, 32);
             this.btnChooseFil1.Margin = new System.Windows.Forms.Padding(2);
             this.btnChooseFil1.Name = "btnChooseFil1";
-            this.btnChooseFil1.Size = new System.Drawing.Size(81, 20);
+            this.btnChooseFil1.Size = new System.Drawing.Size(81, 29);
             this.btnChooseFil1.TabIndex = 15;
             this.btnChooseFil1.Text = "Select file";
             this.btnChooseFil1.UseVisualStyleBackColor = false;
@@ -132,6 +135,7 @@
             this.gbFile2.Controls.Add(this.btnChooseFil2);
             this.gbFile2.Controls.Add(this.cbSheetFile2);
             this.gbFile2.Controls.Add(this.textBox2);
+            this.gbFile2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.gbFile2.Location = new System.Drawing.Point(466, 12);
             this.gbFile2.Name = "gbFile2";
             this.gbFile2.Size = new System.Drawing.Size(414, 119);
@@ -151,20 +155,22 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label1.Location = new System.Drawing.Point(259, 69);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 13);
+            this.label1.Size = new System.Drawing.Size(95, 17);
             this.label1.TabIndex = 28;
             this.label1.Text = "Choose sheet";
             // 
             // btnChooseFil2
             // 
             this.btnChooseFil2.BackColor = System.Drawing.Color.Wheat;
-            this.btnChooseFil2.Location = new System.Drawing.Point(333, 36);
+            this.btnChooseFil2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.btnChooseFil2.Location = new System.Drawing.Point(333, 32);
             this.btnChooseFil2.Margin = new System.Windows.Forms.Padding(2);
             this.btnChooseFil2.Name = "btnChooseFil2";
-            this.btnChooseFil2.Size = new System.Drawing.Size(81, 20);
+            this.btnChooseFil2.Size = new System.Drawing.Size(81, 29);
             this.btnChooseFil2.TabIndex = 16;
             this.btnChooseFil2.Text = "Select file";
             this.btnChooseFil2.UseVisualStyleBackColor = false;
@@ -176,7 +182,7 @@
             this.cbSheetFile2.Location = new System.Drawing.Point(33, 66);
             this.cbSheetFile2.Margin = new System.Windows.Forms.Padding(2);
             this.cbSheetFile2.Name = "cbSheetFile2";
-            this.cbSheetFile2.Size = new System.Drawing.Size(222, 21);
+            this.cbSheetFile2.Size = new System.Drawing.Size(222, 24);
             this.cbSheetFile2.TabIndex = 27;
             this.cbSheetFile2.SelectedIndexChanged += new System.EventHandler(this.cbSheetFile2_SelectedIndexChanged);
             // 
@@ -191,42 +197,48 @@
             // 
             // btnCompare
             // 
-            this.btnCompare.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.btnCompare.Location = new System.Drawing.Point(11, 150);
+            this.btnCompare.BackColor = System.Drawing.SystemColors.Info;
+            this.btnCompare.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.btnCompare.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.btnCompare.Location = new System.Drawing.Point(11, 137);
             this.btnCompare.Name = "btnCompare";
-            this.btnCompare.Size = new System.Drawing.Size(93, 34);
+            this.btnCompare.Size = new System.Drawing.Size(134, 47);
             this.btnCompare.TabIndex = 25;
             this.btnCompare.Text = "Compare Excel";
-            this.btnCompare.UseVisualStyleBackColor = true;
+            this.btnCompare.UseVisualStyleBackColor = false;
             this.btnCompare.Click += new System.EventHandler(this.btnCompare_Click);
             // 
             // lblMsgResult
             // 
             this.lblMsgResult.AutoSize = true;
             this.lblMsgResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblMsgResult.Location = new System.Drawing.Point(110, 159);
+            this.lblMsgResult.Location = new System.Drawing.Point(160, 159);
             this.lblMsgResult.Name = "lblMsgResult";
             this.lblMsgResult.Size = new System.Drawing.Size(0, 17);
             this.lblMsgResult.TabIndex = 27;
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(11, 526);
+            this.btnClear.BackColor = System.Drawing.SystemColors.Menu;
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.btnClear.Location = new System.Drawing.Point(12, 523);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(86, 31);
+            this.btnClear.Size = new System.Drawing.Size(86, 40);
             this.btnClear.TabIndex = 28;
             this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnExportToExcel
             // 
-            this.btnExportToExcel.Location = new System.Drawing.Point(793, 526);
+            this.btnExportToExcel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnExportToExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.btnExportToExcel.Location = new System.Drawing.Point(766, 523);
             this.btnExportToExcel.Name = "btnExportToExcel";
-            this.btnExportToExcel.Size = new System.Drawing.Size(86, 31);
+            this.btnExportToExcel.Size = new System.Drawing.Size(113, 40);
             this.btnExportToExcel.TabIndex = 29;
             this.btnExportToExcel.Text = "ExportToExcel";
-            this.btnExportToExcel.UseVisualStyleBackColor = true;
+            this.btnExportToExcel.UseVisualStyleBackColor = false;
             this.btnExportToExcel.Click += new System.EventHandler(this.btnExportToExcel_Click);
             // 
             // openFileDialog1
@@ -251,6 +263,7 @@
             this.Controls.Add(this.gbFile1);
             this.Controls.Add(this.gbFile2);
             this.Name = "ExcelCompare";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ExcelCompare";
             this.Load += new System.EventHandler(this.ExcelCompare_Load);
             this.gbFile1.ResumeLayout(false);
